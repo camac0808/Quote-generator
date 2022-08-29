@@ -14,28 +14,26 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
-    <title>Write your title</title>
+    <title>Quote Generator</title>
   </head>
   <body>
-    <div class="container">
-      <!--========================================================
-                              HEADER
-    =========================================================-->
-      <header>
-        <nav>
-          <div class="box" data-aos="fade-down"><i class="fa-solid fa-house fa-xl"></i></div>
-        </nav>
-      </header>
-      <!--========================================================
-                              CONTENT
-    =========================================================-->
-      <main class="">
-        <section></section>
-      </main>
-      <!--========================================================
-                            FOOTER
-    =========================================================-->
-      <footer></footer>
+    <div class="quote-container" id="quote-container" data-aos="fade-down">
+      <!-- quote -->
+      <div class="quote-text">
+        <i class="fas fa-quote-left"></i>
+        <span id="quote">This place is quote place. What you'll be is what you do now</span>
+      </div>
+      <!-- author -->
+      <div class="quote-author">
+        <span id="author">Buddha</span>
+      </div>
+      <!-- button -->
+      <div class="button-container">
+        <button class="twitter-button" id="twitter" title="Tweet this!">
+          <i class="fab fa-twitter"></i>
+        </button>
+        <button id="new-quote">New Quote</button>
+      </div>
     </div>
 
     <script
