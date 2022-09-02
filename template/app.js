@@ -1,10 +1,13 @@
+const quoteContainer = document.getElementById("quote-container");
 const quoteText = document.getElementById("quote");
 const authorText = document.getElementById("author");
 const twitterBtn = document.getElementById("twitter");
 const newQuoteBtn = document.getElementById("new-quote");
+const loader = document.getElementById("loader");
 
 // Show new quote
 const newQuote = () => {
+  showLoader();
   const quote = data[Math.floor(Math.random() * data.length)];
   // If author is blank, replace unknown
   if (quote.author === null) {
@@ -19,6 +22,7 @@ const newQuote = () => {
     quoteText.classList.remove("long-quote");
   }
   quoteText.textContent = quote.text;
+  hideLoader();
 };
 
 // Tweet Quote
@@ -29,6 +33,7 @@ const tweetQuote = () => {
 
 // Get quotes from API
 const getQuotes = async () => {
+  showLoader();
   const API_URL = "https://jacintodesign.github.io/quotes-api/data/quotes.json";
   try {
     const response = await fetch(API_URL);
@@ -38,6 +43,18 @@ const getQuotes = async () => {
     console.log(err);
   }
 };
+
+// Show loading
+const showLoader = () => {
+  loader.hidden = false;
+  quoteContainer.hidden = true;
+}
+
+// Hide loading
+const hideLoader = () => {
+  loader.hidden = true;
+  quoteContainer.hidden = false;
+}
 
 // Event listener
 newQuoteBtn.addEventListener("click", newQuote);
@@ -50,3 +67,4 @@ getQuotes();
 // https://zenquotes.io/api/quotes json array 50 random on each request
 // https://zenquotes.io/api/today generate the quote of the day on each request
 // https://zenquotes.io/api/random generate a random quote on each request
+
